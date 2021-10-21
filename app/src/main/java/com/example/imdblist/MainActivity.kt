@@ -54,6 +54,37 @@ class MainActivity : AppCompatActivity() {
                 "https://img.republicworld.com/republic-prod/stories/images/16019654225f7c0d6e3ec0a.png"
                 )
         )
+        imdbDataList.add(
+            ImdbData(
+                "Dune (2021)",
+                8.8,
+                8,
+                88,
+                false,
+                "https://cdn.europosters.eu/image/1300/posters/dune-fear-is-the-mind-killer-i107183.jpg"
+
+            )
+        )
+        imdbDataList.add(
+            ImdbData(
+                "The French Dispatch (2021)",
+                7.2,
+                7,
+                71,
+                false,
+                "https://m.media-amazon.com/imageFs/I/71nWfxOlCTL._AC_SL1398_.jpg"
+            )
+        )
+        imdbDataList.add(
+            ImdbData(
+                "Free Guy (2021)",
+                9.0,
+                9,
+                92,
+                false,
+                "https://img.republicworld.com/republic-prod/stories/images/16019654225f7c0d6e3ec0a.png"
+            )
+        )
 
         imdbAdapter = ImdbAdapter(this, imdbDataList) { position ->
             val imdbData = imdbDataList[position]

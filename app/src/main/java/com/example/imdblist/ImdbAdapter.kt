@@ -31,7 +31,7 @@ class ImdbAdapter(
         holder.rating1TV.text = imdbData.rating1TV.toString()
         holder.rating2TV.text = imdbData.rating2TV.toString()
         holder.ratingMetascoreTV.text = imdbData.ratingMetascoreTV.toString()
-        Picasso.get().load(imdbData.ImageUrl).into(holder.movieImageView)
+        Picasso.get().load(imdbData.imageUrl).into(holder.movieImageView)
 
         if (imdbData.bookmarked){
             holder.bookmarkImageBtn.setImageDrawable(context.getDrawable(R.drawable.ic_baseline_bookmark_added_24))

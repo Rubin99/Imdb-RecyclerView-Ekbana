@@ -10,5 +10,5 @@ data class ImdbData(
     val rating2TV: Int,
     val ratingMetascoreTV: Int,
     var bookmarked: Boolean,
-    var ImageUrl: String
+    var imageUrl: String
 )

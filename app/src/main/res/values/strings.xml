@@ -3,4 +3,6 @@
     <string name="movie_name_year">Movie Name (year)</string>
     <string name="most_recent">Most Recent</string>
     <string name="metascore">Metascore</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
