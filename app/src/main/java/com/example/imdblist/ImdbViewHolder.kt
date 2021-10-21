@@ -1,16 +1,17 @@
 package com.example.imdblist
 
 import android.view.View
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class ImdbViewHolder(
     private val itemView: View,
-    private val onViewClicked: (position: Int) -> Unit
+    private val onBookmarkClicked: (position: Int) -> Unit
 ) : RecyclerView.ViewHolder(itemView) {
 
-    var bookmarkImageBtn: ImageView = itemView.findViewById(R.id.bookmarkImageBtn)
+    var bookmarkImageBtn: ImageButton = itemView.findViewById(R.id.bookmarkImageBtn)
     val movieImageView: ImageView = itemView.findViewById(R.id.movieImageView)
     val movieNameTV: TextView = itemView.findViewById(R.id.movieNameTV)
     val rating1TV: TextView = itemView.findViewById(R.id.rating1TV)
@@ -19,7 +20,7 @@ class ImdbViewHolder(
 
     init {
         bookmarkImageBtn.setOnClickListener {
-            onViewClicked(adapterPosition)
+            onBookmarkClicked(adapterPosition)
         }
     }
 

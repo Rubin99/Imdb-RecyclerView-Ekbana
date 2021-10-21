@@ -25,42 +25,44 @@ class MainActivity : AppCompatActivity() {
         imdbDataList = ArrayList()
         imdbDataList.add(
             ImdbData(
-                R.drawable.ic_baseline_bookmark_add_24,
-                Picasso.get().load("https://i.pinimg.com/originals/7e/4c/3a/7e4c3a7b6aa1fe5ae34d3247f054f517.jpg")
-                    ,
                 "Dune (2021)",
                 8.8,
                 8,
-                88
+                88,
+                false,
+                "https://cdn.europosters.eu/image/1300/posters/dune-fear-is-the-mind-killer-i107183.jpg"
+
             )
         )
         imdbDataList.add(
             ImdbData(
-                R.drawable.ic_baseline_bookmark_add_24,
-                Picasso.get().load("https://image.posterlounge.com/images/l/1904986.jpg")
-                ,
                 "The French Dispatch (2021)",
                 7.2,
                 7,
-                71
+                71,
+                false,
+                "https://m.media-amazon.com/images/I/71nWfxOlCTL._AC_SL1398_.jpg"
             )
         )
         imdbDataList.add(
             ImdbData(
-                R.drawable.ic_baseline_bookmark_add_24,
-                Picasso.get().load("https://img.republicworld.com/republic-prod/stories/images/16019654225f7c0d6e3ec0a.png")
-                ,
                 "Free Guy (2021)",
                 9.0,
                 9,
-                92
-            )
+                92,
+                false,
+                "https://img.republicworld.com/republic-prod/stories/images/16019654225f7c0d6e3ec0a.png"
+                )
         )
-
 
         imdbAdapter = ImdbAdapter(this, imdbDataList) { position ->
             val imdbData = imdbDataList[position]
-
+            if (imdbData.bookmarked){
+                imdbData.bookmarked = false
+            }else{
+                imdbData.bookmarked = true
+            }
+            imdbAdapter.notifyItemChanged(position)
         }
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         recyclerView.adapter = imdbAdapter
