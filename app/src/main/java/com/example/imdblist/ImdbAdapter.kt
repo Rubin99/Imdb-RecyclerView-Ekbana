@@ -7,7 +7,7 @@ import com.squareup.picasso.Picasso
 
 class ImdbAdapter(
 
-    private val context: Context,
+    private val context: FirstFragment,
     private val imdbDataList: MutableList<ImdbData>,
     private val onButtonClicked: (position: Int) -> Unit
 
@@ -34,9 +34,9 @@ class ImdbAdapter(
         Picasso.get().load(imdbData.imageUrl).into(holder.movieImageView)
 
         if (imdbData.bookmarked){
-            holder.bookmarkImageBtn.setImageDrawable(context.getDrawable(R.drawable.ic_baseline_bookmark_added_24))
+            holder.bookmarkImageBtn.setImageResource(R.drawable.ic_baseline_bookmark_added_24)
         } else {
-            holder.bookmarkImageBtn.setImageDrawable(context.getDrawable(R.drawable.ic_baseline_bookmark_add_24))
+            holder.bookmarkImageBtn.setImageResource(R.drawable.ic_baseline_bookmark_add_24)
         }
     }
 

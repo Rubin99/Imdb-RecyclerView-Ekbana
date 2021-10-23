@@ -2,10 +2,10 @@ package com.example.imdblist
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.graphics.drawable.toDrawable
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.squareup.picasso.Picasso
+import androidx.viewpager.widget.ViewPager
+import com.google.android.material.tabs.TabLayout
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,15 +13,40 @@ class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var imdbDataList: MutableList<ImdbData>
 
+    private lateinit var viewPager: ViewPager
+    private var viewPagerAdapter: ViewPagerAdapter? = null
+    private lateinit var tabLayout: TabLayout
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        recyclerView = findViewById(R.id.recyclerView)
-        initRecyclerView()
+//        recyclerView = findViewById(R.id.recyclerView)
+
+        viewPager = findViewById(R.id.viewPager)
+        tabLayout = findViewById(R.id.tabLayout)
+
+        //initRecyclerView()
+        initViewPager()
     }
 
-    private fun initRecyclerView() {
+    private fun initViewPager() {
+        viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
+        viewPager.adapter = viewPagerAdapter
+
+        val firstFragment = FirstFragment()
+        viewPagerAdapter?.addFragment(firstFragment, "Most Recent")
+
+        val secondFragment = SecondFragment()
+        viewPagerAdapter?.addFragment(secondFragment, "Top Rated")
+
+        viewPagerAdapter?.notifyDataSetChanged()
+        tabLayout.setupWithViewPager(viewPager)
+
+    }
+
+
+    /*private fun initRecyclerView() {
         imdbDataList = ArrayList()
         imdbDataList.add(
             ImdbData(
@@ -97,5 +122,5 @@ class MainActivity : AppCompatActivity() {
         }
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         recyclerView.adapter = imdbAdapter
-    }
+    }*/
 }
