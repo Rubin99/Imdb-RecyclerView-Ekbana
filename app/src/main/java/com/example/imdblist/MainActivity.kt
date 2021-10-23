@@ -1,6 +1,8 @@
 package com.example.imdblist
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,6 +23,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        setSupportActionBar(findViewById(R.id.toolbar))
+        supportActionBar?.setIcon(R.drawable.ic_baseline_arrow_back)
+
 //        recyclerView = findViewById(R.id.recyclerView)
 
         viewPager = findViewById(R.id.viewPager)
@@ -28,6 +33,12 @@ class MainActivity : AppCompatActivity() {
 
         //initRecyclerView()
         initViewPager()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.menu, menu)
+        return true
     }
 
     private fun initViewPager() {

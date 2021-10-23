@@ -99,7 +99,7 @@ class FirstFragment : Fragment() {
                 8,
                 80,
                 false,
-                "https://m.media-amazon.com/images/M/MV5BYzQxMjVkZjEtMDQxYy00MGIwLWE1NjYtYzZkZmU1NTFlZGFlXkEyXkFqcGdeQXVyNjY1MTg4Mzc@._V1_.jpg"
+                "https://wallpaperaccess.com/full/4592385.jpg"
             )
         )
 
